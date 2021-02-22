@@ -8,37 +8,17 @@
     <div class="ui fluid raised card chatbox">
       <div class="content">
         <div class="ui feed">
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                 <a>Abir</a> added <a>Nasir</a> as a friend
+            <% @messages.each do |message| %>
+              <div class="event">
+                <div class="content">
+                  <div class="summary">
+                    <em><%= message.user.username %></em>: <%= message.body %>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                 <a>Abir</a> added <a>Tahmed,rauda,laddu,rony</a> as friend
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                 <a>Abir</a> added <a>Nowfel,Limon</a> as friend
-              </div>
-            </div>
-          </div>
-          <br>
-          <div class="event">
-            <div class="content">
-              <div class="summary">
-                 <em>Abir</em>: Biya kor vai tora
-              </div>
-            </div>
+            <% end %>
           </div>
         </div>
-      </div>
       <div class="extra content">
       <form class="ui reply form">
         <div class="field">
