@@ -1,26 +1,20 @@
 <h4 class="ui center aligned medium icon header">
   <i class="circular red coffee icon"></i>
-  Asho amra eikhane chat korbo
+   Current User : <em><%= current_user.username %></em>
+   <br>Asho amra eikhane chat korbo
 </h4>
+
 
 <div class="ui two column grid">
   <div class="twelve wide column">
     <div class="ui fluid raised card chatbox">
       <div class="content">
-        <div class="ui feed">
-            <% @messages.each do |message| %>
-              <div class="event">
-                <div class="content">
-                  <div class="summary">
-                    <em><%= message.user.username %></em>: <%= message.body %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
+        <div class="ui feed" id="message-container">
+            <%= render @messages %>
         </div>
+      </div>
       <div class="extra content">
-      <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path) do |f| %>
+      <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f| %>
         <div class="field">
           <div class="ui fluid icon input">
             <%= f.text_field :body %>
